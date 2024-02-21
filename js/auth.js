@@ -34,7 +34,7 @@ const registerUser = (signupForm, auth, e) => {
 
       // Navigate to a different page after successful sign-in (example using a library)
       // window is a BOM element and BOM is Browser Object Model
-      // window.location.href = "signin.html";
+      window.location.href = "signin.html";
       // ...
     })
     .catch((error) => {
@@ -63,7 +63,7 @@ const loginUser = (signinForm, auth, e) => {
       console.log({ user });
       // Navigate to a different page after successful sign-in (example using a library)
       // window is a BOM element and BOM is Browser Object Model
-      // window.location.href = "index.html";
+      window.location.href = "index.html";
       // ...
     })
     .catch((error) => {
