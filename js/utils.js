@@ -4,7 +4,7 @@ function gotoCreatePostPage(auth, event) {
   console.log({ user });
   console.log(location.href, location);
   if (user) {
-    location.pathname = location.pathname + "createPost.html";
+    location.href = location.origin + location.pathname + "createPost.html";
   } else {
     // location.href = "/signin.html";
     alert("Please login first!");
