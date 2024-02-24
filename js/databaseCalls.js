@@ -167,7 +167,7 @@ function createPostElement(post, username, postId) {
 
   postElement.addEventListener("click", () => {
     // Your desired functionality when the card is clicked
-    location.href = `/postDetails.html`;
+    location.href = `postDetails.html`;
 
     localStorage.setItem("postId", postId);
   });
