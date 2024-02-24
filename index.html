@@ -17,6 +17,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -49,49 +50,17 @@
               Search
             </button>
           </form>
-          <div class="d-flex gap-2 ms-2">
+          <div class="d-flex gap-2 ms-2 align-items-center">
             <button class="btn btn-outline-success" id="createPostNavBtn">
               Write or ask
             </button>
-            <a class="btn btn-outline-success" href="signin.html">Login</a>
+            <div id="loginButtonDiv"></div>
           </div>
         </div>
       </div>
     </nav>
 
-    <section class="container mt-5" id="allPosts">
-      <!-- <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="card-text d-flex justify-content-between">
-                <small
-                  class="text-body-secondary d-flex gap-2 align-items-center"
-                  ><i class="fa-solid fa-user"></i> Ameen</small
-                >
-                <small
-                  class="text-body-secondary d-flex gap-2 align-items-center"
-                  ><i class="fa-solid fa-user"></i>CURRENT DATE</small
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACUCAMAAAAj+tKkAAAAJ1BMVEX09PTMzMz4+PjV1dXR0dHJycnt7e3j4+PZ2dnx8fHf39/q6urc3Nx8cu+jAAABuUlEQVR4nO3Z626DIBiA4coZ9P6vd9BaD52LkGV8LHmfn3ZN3+BA1McDAAAAAAAAAAAAAADgH4muSezdt5ipiVm65ilt2/qmyWrVsc/nPtsk/73vWKjzkCTfIOUvhH59JdA0jYcyBJ4cAmOsWUHEAmPSxoT5djSlAuNUlht7P0GlAs26HNr55gtCgX5bhe9+XChw2a8nn0HOnc66UGDYA89TWcV85FgoE6jSvhc4fx7LoWOz0AjO2//gaa+i3PPYcQyFAtV2jt2xL67VZi+UWmZUKJuayRxnxLuvjOF2XO5SNy8h+Hjq27ey+xiOs1nYx+81edYxHCfQfeyj15kySuDH+L3GcIDA6Nc+961vvU7LBkZt07MvXt3q2bIGiQaWrFJ4cX63VVwyMD73XDZdnt8BAuO6J7Tpp1t54cDp9hZeNPA9fqMGXk7bgQJj1SMawcCl6hGSYGAg8LeBNX2yI1glyN24hype7qapkvR2q4JEYHkyWOvx6Buoljw5jW5QLolLx4forvktRF5ter7LUT7vspreQtip51uIXDinljOsdbp7xPkHjW269wEAAAAAAAAAAAAAgJF9AWqwFQ8Ed9TQAAAAAElFTkSuQmCC"
-              class="img-fluid rounded-start w-100 h-100"
-              alt="..."
-            />
-          </div>
-        </div>
-      </div> -->
-    </section>
+    <section class="container mt-5" id="allPosts"></section>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

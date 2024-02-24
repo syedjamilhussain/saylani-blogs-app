@@ -73,7 +73,7 @@ function getAllPosts() {
       if (snapshot.exists()) {
         // this is iteratable we cannot use it directly snapshot.val()
         const result = Object.entries(snapshot.val());
-        console.log({ result });
+        // console.log({ result });
 
         // users loop
         result.forEach((item) => {
@@ -89,13 +89,19 @@ function getAllPosts() {
           // posts = [x,y,z]
           // [a,b,c] <= [x,y,z]
           // posts loop
+
           let posts = Object.entries(item[1].posts).map((item) => item[1]);
-          console.log(posts);
+          let postsId = Object.entries(item[1].posts).map((item) => item[0]);
+          // console.log(posts);
           let username = item[1].username;
 
           // posts loop
-          posts.forEach((item) => {
-            const postElement = createPostElement(item, username);
+          posts.forEach((item, index) => {
+            const postElement = createPostElement(
+              item,
+              username,
+              postsId[index]
+            );
             postsContainer.appendChild(postElement);
           });
         });
@@ -106,14 +112,29 @@ function getAllPosts() {
     .catch((err) => console.log(err));
 }
 
-function createPostElement(post, username) {
+function GetSinglePost(userId, postId) {
+  get(child(ref(database), `users/${userId}/posts/${postId}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        // this is iteratable we cannot use it directly snapshot.val()
+        console.log(Object.entries(snapshot.val()));
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((err) => console.log(err));
+}
+
+function createPostElement(post, username, postId) {
   const postElement = document.createElement("div");
+
+  console.log({ post });
 
   postElement.classList.add("post");
 
   // Add child elements for post details
   postElement.innerHTML = `
-  <div class="card mb-3" style="max-width: 540px">
+  <div class="card mb-3" style="max-width: 540px;cursor:pointer;" >
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
@@ -144,7 +165,14 @@ function createPostElement(post, username) {
 </div>
   `;
 
+  postElement.addEventListener("click", () => {
+    // Your desired functionality when the card is clicked
+    location.href = `/postDetails.html`;
+
+    localStorage.setItem("postId", postId);
+  });
+
   return postElement;
 }
 
-export { writeUserData, getUserData, createPosts, getAllPosts };
+export { writeUserData, getUserData, createPosts, getAllPosts, GetSinglePost };
