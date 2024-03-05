@@ -1,6 +1,5 @@
 import { auth } from "../app.js";
 import { GetSinglePost } from "./databaseCalls.js";
-console.log({ auth });
 
 window.onload = function GetSinglePost() {
   getPost();
@@ -8,34 +7,36 @@ window.onload = function GetSinglePost() {
 
 function getPost() {
   let postId = localStorage.getItem("postId");
-  console.log({ postId });
 
   auth.onAuthStateChanged((user) => {
     GetSinglePost(user.uid, postId);
   });
 
-  document.getElementById("postDetails").innerHTML = `<h1>Singlee Post</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem non
-      deserunt consectetur ipsam aspernatur ea est amet nihil neque, fuga
-      laudantium provident eos totam dolore tempore in? Recusandae, doloremque
-      architecto.
-    </p>
+ 
+  // Handle comment submission
+  document.getElementById("commentForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
 
-    <form action="#">
-      <label for="reply"><b>add your thoughts</b></label> <br />
-      <textarea
-        name=""
-        id="reply"
-        cols="30"
-        rows="3"
-        placeholder="add our comment here"
-      ></textarea>
-      <br />
-      <button type="submit">submit</button>
-      <!-- <img src="images/456115.png" alt="likeIcon" width="20px"> -->
-      <button style="cursor: pointer">
-        <i class="fa-regular fa-heart"></i>
-      </button>
-    </form>`;
+    // Get the comment text
+    let commentText = document.getElementById("reply").value;
+
+    // Here you can add code to submit the comment to your database
+    console.log("Comment submitted:", commentText);
+
+    // Clear the comment textarea after submission
+    document.getElementById("reply").value = "";
+  });
+
+  // Handle like button click
+  let likeCount = 0; // Initial like count
+  const likeButton = document.getElementById("likeButton");
+  const likeCountElement = document.getElementById("likeCount");
+
+  likeButton.addEventListener("click", function () {
+    likeCount++;
+    likeCountElement.textContent = likeCount;
+
+    // Here you can add code to update the like count in your database
+    console.log("Like button clicked. New like count:", likeCount);
+  });
 }

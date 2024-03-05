@@ -175,4 +175,4 @@ function createPostElement(post, username, postId) {
   return postElement;
 }
 
-export { writeUserData, getUserData, createPosts, getAllPosts, GetSinglePost };
+export { writeUserData, getUserData, createPosts, getAllPosts, GetSinglePost,createPostElement, };
